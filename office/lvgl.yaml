@@ -306,3 +306,26 @@ lvgl:
                   service: switch.toggle
                   data:
                     entity_id: switch.d4c5
+
+        # Storage Lights
+        - button: 
+            height: $button_height_single
+            width: $button_width
+            checkable: true
+            id: storage_lights_button
+            styles: control
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  id: storage_lights_icon
+                  text: $battery
+              - label:
+                  align: bottom_left
+                  id: storage_lights_label
+                  text: "Storage"
+            on_click:
+              - homeassistant.service:
+                  service: light.toggle
+                  data:
+                    entity_id: light.office_storage
