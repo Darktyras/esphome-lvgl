@@ -13,13 +13,13 @@ wifi:
 packages:
   setup:
     url: https://github.com/jtenniswood/esphome-lvgl/
-    files: [device/esp32-s3-touch-lcd-7.yaml,
-            addon/time.yaml,
-            addon/backlight.yaml,
-            addon/network.yaml,
-            assets/fonts.yaml,
-            assets/icons.yaml,
-            theme/button.yaml,
-            office/sensors.yaml,
-            office/lvgl.yaml]
+    files: [waveshare-esp32-s3-touch-lcd-7/device/device.yaml,
+            waveshare-esp32-s3-touch-lcd-7/device/sensors.yaml,
+            waveshare-esp32-s3-touch-lcd-7/device/lvgl.yaml,
+            waveshare-esp32-s3-touch-lcd-7/addon/time.yaml,
+            waveshare-esp32-s3-touch-lcd-7/addon/backlight.yaml,
+            waveshare-esp32-s3-touch-lcd-7/addon/network.yaml,
+            waveshare-esp32-s3-touch-lcd-7/assets/fonts.yaml,
+            waveshare-esp32-s3-touch-lcd-7/assets/icons.yaml,
+            waveshare-esp32-s3-touch-lcd-7/theme/button.yaml]
     refresh: 1sec
