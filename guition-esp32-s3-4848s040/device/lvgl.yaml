@@ -848,9 +848,9 @@ lvgl:
             hidden: true
             widgets:
               - label:
-                  text_font: $icon_font
+                  text_font: roboto44_font
                   align: top_left
-                  text: $chevron_up
+                  text: "+1°"
               - label:
                   align: bottom_left
                   text: "Warmer"
@@ -884,9 +884,9 @@ lvgl:
             hidden: true
             widgets:
               - label:
-                  text_font: $icon_font
+                  text_font: roboto44_font
                   align: top_left
-                  text: $chevron_down
+                  text: "-1°"
               - label:
                   align: bottom_left
                   text: "Cooler"
