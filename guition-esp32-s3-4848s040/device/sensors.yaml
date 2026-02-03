@@ -128,6 +128,52 @@ sensor:
     id: office_blind_position
     attribute: current_position
 
+  # ===========================================================================
+  # SENSOR: Centauri Carbon Print Progress
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Current print progress percent from Home Assistant
+  #   Watches: sensor.centauri_carbon_percent_complete_helper
+  #
+  # WHAT IT UPDATES:
+  #   The print progress label inside the "Printer" button
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → print_progress_label
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: sensor.centauri_carbon_percent_complete_helper
+    id: centauri_carbon_percent
+    on_value:
+      - lvgl.label.update:
+          id: print_progress_label
+          text:
+            format: "%.0f"
+            args: [ 'x' ]
+
+  # ===========================================================================
+  # SENSOR: Filament Heater Humidity
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Current humidity percent from the filament dryer sensor
+  #   Watches: sensor.office_filament_heater_sensor_humidity
+  #
+  # WHAT IT UPDATES:
+  #   The humidity label inside the "Dryer" button
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → dryer_humidity_label
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: sensor.office_filament_heater_sensor_humidity
+    id: filament_heater_humidity
+    on_value:
+      - lvgl.label.update:
+          id: dryer_humidity_label
+          text:
+            format: "%.0f"
+            args: [ 'x' ]
+
 
 
 # =============================================================================
@@ -264,10 +310,16 @@ binary_sensor:
     trigger_on_initial_state: true
     on_state:
       then:
-        lvgl.widget.update:
-          id: printer_power_button
-          state:
-            checked: !lambda return x;
+        - lvgl.widget.update:
+            id: printer_power_button
+            state:
+              checked: !lambda return x;
+        - lvgl.widget.update:
+            id: printer_power_icon
+            hidden: !lambda return x;
+        - lvgl.widget.update:
+            id: print_progress_container
+            hidden: !lambda return !x;
 
   # ===========================================================================
   # SENSOR: Air Conditioner State
@@ -342,10 +394,16 @@ binary_sensor:
     trigger_on_initial_state: true
     on_state:
       then:
-        lvgl.widget.update:
-          id: filament_heater_button
-          state:
-            checked: !lambda return x;
+        - lvgl.widget.update:
+            id: filament_heater_button
+            state:
+              checked: !lambda return x;
+        - lvgl.widget.update:
+            id: filament_heater_icon
+            hidden: !lambda return x;
+        - lvgl.widget.update:
+            id: dryer_humidity_container
+            hidden: !lambda return !x;
 
   # ===========================================================================
   # TEMPLATE SENSOR: Blind at 100% (Fully Open)
