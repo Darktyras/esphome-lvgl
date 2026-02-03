@@ -732,9 +732,9 @@ lvgl:
             on_click:
               - homeassistant.service:
                   service: cover.set_cover_position
-                data:
-                  entity_id: cover.office_blind
-                  position: "0"
+                  data:
+                    entity_id: cover.office_blind
+                    position: "0"
 
     - id: experiment_page
       layout: 
