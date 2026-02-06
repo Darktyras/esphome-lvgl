@@ -1282,7 +1282,6 @@ lvgl:
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
-                    - delay: 100ms
                     - homeassistant.service:
                         service: climate.set_temperature
                         data:
@@ -1360,7 +1359,6 @@ lvgl:
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
-                    - delay: 100ms
                     - homeassistant.service:
                         service: climate.set_temperature
                         data:
@@ -1398,7 +1396,6 @@ lvgl:
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
-                    - delay: 100ms
                     - homeassistant.service:
                         service: climate.set_temperature
                         data:
