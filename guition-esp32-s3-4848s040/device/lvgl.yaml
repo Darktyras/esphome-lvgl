@@ -1278,10 +1278,14 @@ lvgl:
                   adjustable: true
                   on_value:
                     - homeassistant.service:
-                        service: climate.set_temperature
+                        service: climate.set_hvac_mode
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
+                    - homeassistant.service:
+                        service: climate.set_temperature
+                        data:
+                          entity_id: climate.central_heating
                           temperature: !lambda return (float)x / 2.0f;
 
               # Mode label
@@ -1351,15 +1355,22 @@ lvgl:
                         text_color: 0xB0B0B0
                   on_click:
                     - homeassistant.service:
-                        service: climate.set_temperature
+                        service: climate.set_hvac_mode
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
+                    - homeassistant.service:
+                        service: climate.set_temperature
+                        data:
+                          entity_id: climate.central_heating
                           temperature: !lambda |-
+                            float v = 10.0f;
                             if (id(heating_target_temperature).has_state()) {
-                              return id(heating_target_temperature).state - 0.5f;
+                              v = id(heating_target_temperature).state - 0.5f;
                             }
-                            return 0.0f;
+                            if (v < 10.0f) v = 10.0f;
+                            if (v > 32.0f) v = 32.0f;
+                            return v;
 
               # Up button (+0.5C)
               - button:
@@ -1381,12 +1392,19 @@ lvgl:
                         text_color: 0xB0B0B0
                   on_click:
                     - homeassistant.service:
-                        service: climate.set_temperature
+                        service: climate.set_hvac_mode
                         data:
                           entity_id: climate.central_heating
                           hvac_mode: heat
+                    - homeassistant.service:
+                        service: climate.set_temperature
+                        data:
+                          entity_id: climate.central_heating
                           temperature: !lambda |-
+                            float v = 10.0f;
                             if (id(heating_target_temperature).has_state()) {
-                              return id(heating_target_temperature).state + 0.5f;
+                              v = id(heating_target_temperature).state + 0.5f;
                             }
-                            return 0.0f;
+                            if (v < 10.0f) v = 10.0f;
+                            if (v > 32.0f) v = 32.0f;
+                            return v;
