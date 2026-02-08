@@ -20,13 +20,13 @@ This repository contains ESPHome configurations for creating beautiful, touch-en
 - **Network & Time**: Automatic network connectivity and time synchronization
 - **Backlight Control**: Intelligent display brightness management
 
-## Where to Buy (AliExpress)
+## Where to Buy
 
 You can find the supported panels on AliExpress. Links are placeholders for now.
 
-- **Guition ESP32-P4 JC1060P470 (10.6")**: https://s.click.aliexpress.com/e/_c335W0r5
-- **Guition ESP32-S3 4848S040 (4.0")**: https://s.click.aliexpress.com/e/_c3sIhvBv
-- **Waveshare ESP32-S3 Touch LCD 7"**: https://s.click.aliexpress.com/e/_c37ljk8J]
+- **Guition ESP32-P4 JC1060P470 (7", around £40)**: https://s.click.aliexpress.com/e/_c335W0r5
+- **Guition ESP32-S3 4848S040 (4.0", around £16)**: https://s.click.aliexpress.com/e/_c3sIhvBv
+- **Waveshare ESP32-S3 Touch LCD 7", around £40)**: https://s.click.aliexpress.com/e/_c37ljk8J
 
 
 ## Quick Start
