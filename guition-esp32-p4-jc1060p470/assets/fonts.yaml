@@ -1,13 +1,13 @@
 # The styles below use these fonts, to change the font size, change the size here
 font:
-  - file: "gfonts://Roboto"
+  - file: "gfonts://Roboto@300"
     id: statistics_font
     size: 48
     bpp: 4
 
   - file: "gfonts://Roboto"
     id: label_font
-    size: 28
+    size: 22
     bpp: 4
 
   - file: "gfonts://Roboto"
