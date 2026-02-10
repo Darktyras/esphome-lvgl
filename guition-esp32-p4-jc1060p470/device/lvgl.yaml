@@ -257,7 +257,6 @@ lvgl:
                     - label:
                         text_font: statistics_font
                         text_color: 0xFFFFFF
-                        text_letter_space: -2
                         id: print_progress_label
                         text: "--"
                     - label:
@@ -306,7 +305,6 @@ lvgl:
                   widgets:
                     - label:
                         text_font: statistics_font
-                        text_letter_space: -4
                         id: dryer_humidity_label
                         text: "--"
                     - label:
