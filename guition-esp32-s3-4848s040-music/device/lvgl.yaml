@@ -21,13 +21,13 @@ lvgl:
       pad_right: 12
 
       widgets:
-        # Full-screen artwork background (scaled, soft opacity); drawn first so behind all content
+        # Full-screen artwork background (extends into page padding so no margin); drawn first
         - image:
             id: album_art_background_widget
-            x: 0
-            y: 0
-            width: 100%
-            height: 100%
+            x: -12
+            y: -12
+            width: 480px
+            height: 480px
             src: album_art_background
             opa: 40%
 
