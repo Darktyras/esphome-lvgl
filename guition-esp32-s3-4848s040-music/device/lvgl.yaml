@@ -31,13 +31,13 @@ lvgl:
             src: album_art_background
             img_opa: 40%
 
-        # Album art (top) - 200x200 square, centered; aspect ratio preserved (no stretch)
+        # Album art (top) - 150x150 for faster download; centered in content area
         - image:
             id: album_art_widget
-            x: 128
+            x: 153
             y: 0
-            width: 200px
-            height: 200px
+            width: 150px
+            height: 150px
             src: album_art_image
 
         # Song title
