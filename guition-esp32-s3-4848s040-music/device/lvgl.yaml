@@ -1,0 +1,160 @@
+# =============================================================================
+# LVGL MUSIC DASHBOARD
+# =============================================================================
+# Single-screen now-playing view for Sonos (media_player.office).
+# Data from sensors.yaml; album art from online_image (addon/music.yaml).
+# =============================================================================
+
+lvgl:
+  buffer_size: 100%
+  top_layer:
+    widgets:
+      - label:
+          text: "--:--"
+          id: display_time
+          styles: roboto15_style
+          align: top_mid
+          x: 0
+          y: 4
+          text_align: center
+          text_color: 0xFFFFFF
+
+  pages:
+    - id: main_page
+      scrollbar_mode: "off"
+      width: 100%
+      height: 100%
+      bg_color: 0x1E1E1E
+      pad_top: 34
+      pad_bottom: 12
+      pad_left: 16
+      pad_right: 16
+
+      widgets:
+        # Album art (top)
+        - image:
+            id: album_art_widget
+            x: 0
+            y: 0
+            width: 100%
+            height: 240px
+            src: album_art_image
+
+        # Song title
+        - label:
+            id: media_title_label
+            text: "—"
+            x: 0
+            y: 248
+            width: 100%
+            text_font: roboto19_font
+            text_color: 0xFFFFFF
+            text_align: left
+
+        # Artist
+        - label:
+            id: media_artist_label
+            text: "—"
+            x: 0
+            y: 272
+            width: 100%
+            text_font: roboto15_font
+            text_color: 0xB0B0B0
+            text_align: left
+
+        # Elapsed time (left of progress bar)
+        - label:
+            id: media_elapsed_label
+            text: "0:00"
+            x: 0
+            y: 302
+            text_font: roboto15_font
+            text_color: 0xFFFFFF
+
+        # Progress bar
+        - bar:
+            id: media_progress_bar
+            x: 48
+            y: 302
+            width: 384px
+            height: 8px
+            min_value: 0
+            max_value: 100
+            value: 0
+            indicator:
+              bg_color: 0x2196F3
+              radius: 4
+            main:
+              bg_color: 0x505050
+              radius: 4
+
+        # Total duration (right of progress bar)
+        - label:
+            id: media_duration_label
+            text: "0:00"
+            x: 432
+            y: 302
+            width: 40px
+            text_font: roboto15_font
+            text_color: 0xFFFFFF
+            text_align: right
+
+        # Control buttons row (previous, play/pause, next)
+        - button:
+            id: media_prev_button
+            x: 72
+            y: 328
+            width: 80px
+            height: 80px
+            styles: control
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: center
+                  text: $skip_previous
+                  text_color: 0xFFFFFF
+            on_press:
+              - homeassistant.service:
+                  service: media_player.media_previous_track
+                  data:
+                    entity_id: ${media_player_entity}
+
+        - button:
+            id: media_play_pause_button
+            x: 200
+            y: 320
+            width: 80px
+            height: 80px
+            styles: control
+            bg_color: 0x2196F3
+            widgets:
+              - label:
+                  id: media_play_pause_icon
+                  text_font: $icon_font
+                  align: center
+                  text: $pause
+                  text_color: 0xFFFFFF
+            on_press:
+              - homeassistant.service:
+                  service: media_player.media_play_pause
+                  data:
+                    entity_id: ${media_player_entity}
+
+        - button:
+            id: media_next_button
+            x: 328
+            y: 328
+            width: 80px
+            height: 80px
+            styles: control
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: center
+                  text: $skip_next
+                  text_color: 0xFFFFFF
+            on_press:
+              - homeassistant.service:
+                  service: media_player.media_next_track
+                  data:
+                    entity_id: ${media_player_entity}
