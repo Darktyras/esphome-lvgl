@@ -13,6 +13,9 @@ image:
   - file: "https://placehold.co/200x200/2d2d2d/555555"
     id: album_art_placeholder
     type: rgb565
+  - file: "https://placehold.co/480x480/2d2d2d/555555"
+    id: album_art_background_placeholder
+    type: rgb565
 
 # Dynamic album art from media_player entity_picture (URL set by sensors.yaml).
 # Resize fits inside 200x200 and preserves aspect ratio (letterboxed, no stretch).
@@ -27,3 +30,15 @@ online_image:
       - lvgl.image.update:
           id: album_art_widget
           src: album_art_image
+
+  # Full-screen background (same URL, scaled up); soft look via opacity in LVGL.
+  - url: "https://placehold.co/480x480/2d2d2d/555555"
+    id: album_art_background
+    type: rgb565
+    format: jpeg
+    placeholder: album_art_background_placeholder
+    resize: 480x480
+    on_download_finished:
+      - lvgl.image.update:
+          id: album_art_background_widget
+          src: album_art_background

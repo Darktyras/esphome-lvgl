@@ -93,6 +93,12 @@ text_sensor:
                   std::string path = x;
                   while (!path.empty() && (path.back() == '\n' || path.back() == '\r' || path.back() == ' ')) path.pop_back();
                   return std::string("http://192.168.1.30:8123") + path;
+            - online_image.set_url:
+                id: album_art_background
+                url: !lambda |-
+                  std::string path = x;
+                  while (!path.empty() && (path.back() == '\n' || path.back() == '\r' || path.back() == ' ')) path.pop_back();
+                  return std::string("http://192.168.1.30:8123") + path;
 
   - platform: homeassistant
     entity_id: media_player.office
@@ -101,8 +107,9 @@ text_sensor:
       - lvgl.label.update:
           id: media_play_pause_icon
           text: !lambda |-
-            if (x == "playing") return std::string("\xEF\x8F\xA4");  // mdi-pause U+F03E4
-            return std::string("\xEF\x90\x8D");  // mdi-play U+F040D
+            // UTF-8 for MDI: pause U+F03E4 = EF 83 A4, play U+F040D = EF 84 8D
+            if (x == "playing") return std::string("\xEF\x83\xA4");
+            return std::string("\xEF\x84\x8D");
 
 sensor:
   - platform: homeassistant

@@ -21,6 +21,16 @@ lvgl:
       pad_right: 12
 
       widgets:
+        # Full-screen artwork background (scaled, soft opacity); drawn first so behind all content
+        - image:
+            id: album_art_background_widget
+            x: 0
+            y: 0
+            width: 100%
+            height: 100%
+            src: album_art_background
+            img_opa: 40%
+
         # Album art (top) - 200x200 square, centered; aspect ratio preserved (no stretch)
         - image:
             id: album_art_widget
