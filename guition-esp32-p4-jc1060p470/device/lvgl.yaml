@@ -62,7 +62,7 @@ lvgl:
                   text: "Dre Fan"
             on_press:
               - homeassistant.service:
-                  service: switch.toggle
+                  service: fan.toggle
                   data:
                     entity_id: fan.sonoff_s31_relay
 
