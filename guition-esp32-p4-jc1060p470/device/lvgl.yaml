@@ -59,12 +59,12 @@ lvgl:
               - label:
                   align: bottom_left
                   id: scene_features_label
-                  text: "Features"
+                  text: "Dre Fan"
             on_press:
               - homeassistant.service:
                   service: switch.toggle
                   data:
-                    entity_id: switch.office_features_stateful_scene
+                    entity_id: fan.sonoff_s31_relay
 
         # Office Calls Scene
         - button: 
