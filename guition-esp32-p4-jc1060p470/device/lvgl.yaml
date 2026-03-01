@@ -55,7 +55,7 @@ lvgl:
                   text_font: $icon_font
                   align: top_left
                   id: scene_features_icon                
-                  text: $ledstrip
+                  text: $fan
               - label:
                   align: bottom_left
                   id: scene_features_label
@@ -78,16 +78,16 @@ lvgl:
                   text_font: $icon_font
                   align: top_left
                   id: office_scene_calls_icon                
-                  text: $videocall
+                  text: $fan
               - label:
                   align: bottom_left
                   id: office_scene_calls_label
-                  text: "Calls"
+                  text: "Kyra Fan"
             on_press:
               - homeassistant.service:
-                  service: switch.toggle
+                  service: fan.toggle
                   data:
-                    entity_id: switch.office_calls_stateful_scene
+                    entity_id: fan.sonoff_s31_relay_2
 
         # Office Evening Scene
         - button: 
