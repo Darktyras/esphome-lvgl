@@ -12,14 +12,14 @@ sensor:
             args: [ '(int)round(id(outdoor_temperature).state)', '(int)round(x)' ]
 
   - platform: homeassistant
-    entity_id: weather.home.temperature
+    entity_id: weather.home
     id: outdoor_temperature
     on_value:
       - lvgl.label.update:
           id: temperatures
           text:
             format: "%d° / %d°"
-            args: [ '(int)round(x)', '(int)round(id(office_temperature).state)' ]
+            args: [ '(int)round(x)', '(int)round(id(temperature).state)' ]
 
   # Office Blind Position
   - platform: homeassistant
