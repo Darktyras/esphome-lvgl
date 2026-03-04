@@ -105,12 +105,12 @@ lvgl:
               - label:
                   align: bottom_left
                   id: office_scene_evening_label
-                  text: "Evening"
+                  text: "Tree Light"
             on_press:
               - homeassistant.service:
                   service: switch.toggle
                   data:
-                    entity_id: switch.office_evening_stateful_scene
+                    entity_id: switch.bedroom_tree_light
 
         # Office Dimmed Scene
         - button: 
