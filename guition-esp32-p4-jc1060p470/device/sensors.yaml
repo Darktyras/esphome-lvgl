@@ -56,7 +56,7 @@ binary_sensor:
   # Office Evening Scene
   - platform: homeassistant
     id: office_scene_evening
-    entity_id: fan.sonoff_s31_relay
+    entity_id: switch.bedroom_tree_light
     trigger_on_initial_state: true
     on_state:
       then:
@@ -92,7 +92,7 @@ binary_sensor:
   # Office Features Scene
   - platform: homeassistant
     id: office_scene_features
-    entity_id: switch.bedroom_tree_light
+    entity_id: fan.sonoff_s31_relay
     trigger_on_initial_state: true
     on_state:
       then:
