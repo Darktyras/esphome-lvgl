@@ -4,9 +4,9 @@ time:
     id: sntp_time
     timezone: Canada/Invermere
     servers:
-     - 0.pool.ntp.org
-     - 1.pool.ntp.org
-     - 2.pool.ntp.org
+     - 0.ca.pool.ntp.org
+     - 1.ca.pool.ntp.org
+     - 2.ca.pool.ntp.org
     on_time_sync:
       - script.execute: time_update
     on_time:
