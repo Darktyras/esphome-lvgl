@@ -92,7 +92,7 @@ binary_sensor:
   # Office Features Scene
   - platform: homeassistant
     id: office_scene_features
-    entity_id:
+    entity_id: switch.bedroom_tree_light
     trigger_on_initial_state: true
     on_state:
       then:
