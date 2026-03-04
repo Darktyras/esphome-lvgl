@@ -80,7 +80,7 @@ binary_sensor:
   # Office Calls Scene
   - platform: homeassistant
     id: office_scene_desk_call
-    entity_id: fan.sonoff_s31_relay
+    entity_id: fan.sonoff_s31_relay_2
     trigger_on_initial_state: true
     on_state:
       then:
@@ -92,7 +92,7 @@ binary_sensor:
   # Office Features Scene
   - platform: homeassistant
     id: office_scene_features
-    entity_id: switch.office_features_stateful_scene
+    entity_id:
     trigger_on_initial_state: true
     on_state:
       then:
